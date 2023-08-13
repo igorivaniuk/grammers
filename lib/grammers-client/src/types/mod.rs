@@ -28,6 +28,7 @@ pub mod photo_sizes;
 pub mod reply_markup;
 pub mod terms_of_service;
 pub mod update;
+pub mod update_raw;
 
 pub use attributes::Attribute;
 pub use callback_query::CallbackQuery;
@@ -50,3 +51,4 @@ pub use permissions::{Permissions, Restrictions};
 pub(crate) use reply_markup::ReplyMarkup;
 pub use terms_of_service::TermsOfService;
 pub use update::Update;
+pub use update_raw::UpdateRaw;

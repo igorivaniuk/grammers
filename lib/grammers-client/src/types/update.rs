@@ -9,8 +9,9 @@ use std::sync::Arc;
 
 use grammers_tl_types as tl;
 
-use super::{CallbackQuery, ChatMap, InlineQuery, Message};
 use crate::{types::MessageDeletion, Client};
+
+use super::{CallbackQuery, ChatMap, InlineQuery, Message, UpdateRaw};
 
 #[non_exhaustive]
 #[derive(Debug, Clone)]
@@ -34,7 +35,7 @@ pub enum Update {
     /// **NOTE**: the library can split raw updates into actual `Update`
     /// variants so use this only as the workaround when such variant is not
     /// available yet.
-    Raw(tl::enums::Update),
+    Raw(UpdateRaw),
 }
 
 impl Update {
@@ -85,7 +86,7 @@ impl Update {
             }
 
             // Raw
-            update => Some(Self::Raw(update)),
+            update => Some(Self::Raw(UpdateRaw::new(update, chats))),
         }
     }
 }

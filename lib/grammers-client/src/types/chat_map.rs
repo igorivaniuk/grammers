@@ -83,4 +83,8 @@ impl ChatMap {
                 _ => unreachable!(),
             })
     }
+
+    pub(crate) fn iter(&self) -> impl Iterator<Item = (&Peer, &Chat)> {
+        self.map.iter()
+    }
 }
